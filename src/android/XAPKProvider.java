@@ -66,7 +66,7 @@ public class XAPKProvider extends ContentProvider {
  
  @Override public int delete (Uri arg0, String arg1, String[] arg2) {return 0;}
 
- @Override public String getType (Uri uri) {return "vnd.android.cursor.item/asset";}
+ @Override public String getType (Uri uri) {return "text/html";}
 
  @Override public Uri insert (Uri uri, ContentValues values) {return null;}
  
@@ -169,7 +169,7 @@ public class XAPKProvider extends ContentProvider {
   int len = intProjection.length;
   for (ZipEntryRO zer : zipEntries) {
    MatrixCursor.RowBuilder rb = mc.newRow();
-   for (int i = 0; i < len; i++) {    
+   for (int i = 0; i < len; i++) {
     switch (intProjection[i]) {
      case FILEID_IDX    : rb.add(i); break;
      case FILENAME_IDX  : rb.add(zer.mFileName); break;

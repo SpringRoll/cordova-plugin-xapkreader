@@ -118,7 +118,7 @@ public class DownloadThread {
      */
     private class StopRequest extends Throwable {
         /**
-		 * 
+		 *
 		 */
         private static final long serialVersionUID = 6338592678988347973L;
         public int mFinalStatus;
@@ -141,7 +141,7 @@ public class DownloadThread {
     private class RetryDownload extends Throwable {
 
         /**
-		 * 
+		 *
 		 */
         private static final long serialVersionUID = 6196036036517540229L;
     }
@@ -150,7 +150,7 @@ public class DownloadThread {
      * Returns the preferred proxy to be used by clients. This is a wrapper
      * around {@link android.net.Proxy#getHost()}. Currently no proxy will be
      * returned for localhost or if the active network is Wi-Fi.
-     * 
+     *
      * @param context the context which will be passed to
      *            {@link android.net.Proxy#getHost()}
      * @param url the target URL for the request
@@ -333,7 +333,7 @@ public class DownloadThread {
     /**
      * Transfer as much data as possible from the HTTP response to the
      * destination file.
-     * 
+     *
      * @param data buffer to use to read data
      * @param entityStream stream for reading the HTTP response entity
      */
@@ -484,7 +484,7 @@ public class DownloadThread {
 
     /**
      * Write a data buffer to the destination file.
-     * 
+     *
      * @param data buffer containing the data to write
      * @param bytesRead how many bytes to write from the buffer
      */
@@ -548,7 +548,7 @@ public class DownloadThread {
 
     /**
      * Read some data from the HTTP response stream, handling I/O errors.
-     * 
+     *
      * @param data buffer to use to read data
      * @param entityStream stream for reading the HTTP response entity
      * @return the number of bytes actually read or -1 if the end of the stream
@@ -576,7 +576,7 @@ public class DownloadThread {
 
     /**
      * Open a stream for the HTTP response entity, handling I/O errors.
-     * 
+     *
      * @return an InputStream to read the response entity
      */
     private InputStream openResponseEntity(State state, HttpResponse response)
@@ -675,10 +675,10 @@ public class DownloadThread {
         header = response.getFirstHeader("Content-Type");
         if (header != null) {
             headerContentType = header.getValue();
-            if (!headerContentType.equals("application/vnd.android.obb")) {
-                throw new StopRequest(DownloaderService.STATUS_FILE_DELIVERED_INCORRECTLY,
-                        "file delivered with incorrect Mime type");
-            }
+            // if (!headerContentType.equals("application/vnd.android.obb")) {
+            //     throw new StopRequest(DownloaderService.STATUS_FILE_DELIVERED_INCORRECTLY,
+            //             "file delivered with incorrect Mime type");
+            // }
         }
 
         if (headerTransferEncoding == null) {
