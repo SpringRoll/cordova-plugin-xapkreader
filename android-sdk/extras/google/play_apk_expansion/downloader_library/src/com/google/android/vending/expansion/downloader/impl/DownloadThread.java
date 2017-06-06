@@ -671,15 +671,15 @@ public class DownloadThread {
         if (header != null) {
             headerTransferEncoding = header.getValue();
         }
-        String headerContentType = null;
-        header = response.getFirstHeader("Content-Type");
-        if (header != null) {
-            headerContentType = header.getValue();
-            if (!headerContentType.equals("application/vnd.android.obb")) {
-                throw new StopRequest(DownloaderService.STATUS_FILE_DELIVERED_INCORRECTLY,
-                        "file delivered with incorrect Mime type");
-            }
-        }
+        // String headerContentType = null;
+        // header = response.getFirstHeader("Content-Type");
+        // if (header != null) {
+        //     headerContentType = header.getValue();
+        //     if (!headerContentType.equals("application/vnd.android.obb")) {
+        //         throw new StopRequest(DownloaderService.STATUS_FILE_DELIVERED_INCORRECTLY,
+        //                 "file delivered with incorrect Mime type");
+        //     }
+        // }
 
         if (headerTransferEncoding == null) {
             header = response.getFirstHeader("Content-Length");
